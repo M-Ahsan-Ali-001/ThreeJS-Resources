@@ -87,4 +87,19 @@ renderer.render(scene , camera)
 }
 animate() // remember to call it otherwise it doesnot work
 ```
+# PlaneMesh.geometry.attributes['position'].array
+```
+ array is a 32-bit floating point number. The array contains the X, Y, and Z coordinates for each vertex of the plane.
 
+ const arrayAxises = PlaneMesh.geometry.attributes['position'].array
+
+        for (let i =0 ; i<arrayAxises.length;i+=3){ // changing the shape 
+            const x = arrayAxises[i]
+            const y = arrayAxises[i+1]
+            const z = arrayAxises[i+2]
+
+             arrayAxises[i+2] =z + Math.random() 
+
+        }
+
+```
