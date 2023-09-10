@@ -188,7 +188,8 @@ const collision = raycaster.intersectObject(PlaneMesh)
 
 if(collision.length >0)
 {
-    console.log('collision')
+    const mesh = collision[0].object as THREE.Mesh; // only of TS
+    console.log(mesh.geometry);
 }
 }
 ```
