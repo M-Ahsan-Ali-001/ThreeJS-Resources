@@ -6,7 +6,7 @@ camera.position.z = 5 // change camera direction so that things are visible
                                           
 ```
 
-# canvas
+# Canvas
 ```
 const canvas = document.getElementbyid('id-of-canvas')  as HTMLCanvasElement // last part is for angular only typscript ....
 
@@ -15,6 +15,10 @@ const canvas = document.getElementbyid('id-of-canvas')  as HTMLCanvasElement // 
 
 ```
 const scene = new Three.Scene() // create a new scene
+
+scene.add(meshBox)
+
+scene.add(light)
 ```
 
 # WebGL Renderer
@@ -40,7 +44,7 @@ const boxGeometry = new Three.BoxGeometry(4,4,4,4) // (width : Float, height : F
 
 
 
-#MeshMaterial
+# MeshMaterial
 ```
 const meshMat =  new Three.MeshBasicMaterial(
 {
@@ -51,4 +55,8 @@ color:0x00FF00,
 vertexColor:true // color of every single polygone
 })
 
+```
+# Mesh 
+```
+const meshBox = new Three.Mesh(boxGeometry,meshMat)
 ```
