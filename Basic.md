@@ -163,3 +163,32 @@ color.push(1,0,0)
 const TypedArray =  new Float32Array(color)
 PlaneMesh.geometry.setAttribute('color',new Three.Int8BufferAttribute(TypedArray,3))
 ```
+
+
+# add Mouse Listenr and normalize them
+```
+addEventListener('mousemove',(event)=>{
+
+mouseCord.x = (event.clientX / innerWidth) * 2 -1 
+
+mouseCord.y = -(event.clientY / innerHeight) * 2 +1  // we do this to normalize the mouse and get right cordinate where the mouse is pointing or hovering
+
+console.log(mouseCord)
+})
+
+
+```
+
+# RayCast
+```
+//tells if the mouse hover over the plane
+const raycaster = new Three.Raycaster()
+raycaster.setFromCamera(mouseCord,camera)
+const collision = raycaster.intersectObject(PlaneMesh)
+
+if(collision.length >0)
+{
+    console.log('collision')
+}
+}
+```
