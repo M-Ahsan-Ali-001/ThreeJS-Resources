@@ -46,6 +46,7 @@ const boxGeometry = new Three.BoxGeometry(4,4,4,4) // (width : Float, height : F
 
 # MeshMaterial
 ```
+// there different types of material like Phong material remember Phong need a light to be appeared
 const meshMat =  new Three.MeshBasicMaterial(
 {
 // many other properties
@@ -60,3 +61,30 @@ vertexColor:true // color of every single polygone
 ```
 const meshBox = new Three.Mesh(boxGeometry,meshMat)
 ```
+
+#  DirectionalLight
+
+```
+const light = new Three.DirectionalLight(0xFFFFFF,1) // (COLOR , intensity)
+light.position.set(0,0,1) // (x,y,z)light to  the front
+light.position.set(0,0,-1) // light to  the back
+
+```
+
+# Obital Control
+```
+new OrbitalControls(camera , renderer.domElement) // used to rotate the camera around the object in front of camera
+```
+
+# request for animation
+```
+function animate (){
+
+requestAnimationFrame(animate); // used for animations 
+Box.rotate.x += 0.01 // used to rotate the object
+renderer.render(scene , camera) 
+
+}
+animate() // remember to call it otherwise it doesnot work
+```
+
