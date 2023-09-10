@@ -103,3 +103,63 @@ animate() // remember to call it otherwise it doesnot work
         }
 
 ```
+
+# dat.gui
+```
+used to tweak the values
+  const datGui = new dat.GUI()
+   const world = {
+            plane:{
+
+                width:10,
+                height:10,
+                widthSegments:500,
+                heightSegments:500
+            }}
+  datGui.add(world.plane,'width',1,50).
+        onChange(changeManager)
+
+        datGui.add(world.plane,'height',1,50).
+        onChange(changeManager) 
+
+        datGui.add(world.plane,'widthSegments',1,500).
+        onChange(changeManager)
+
+        datGui.add(world.plane,'heightSegments',1,500).
+        onChange(changeManager)
+
+
+
+        function changeManager(){
+
+
+            PlaneMesh.geometry.dispose()
+            PlaneMesh.geometry = new Three.PlaneGeometry(world.plane.width,world.plane.height,world.plane.widthSegments,world.plane.heightSegments)
+            const arrayAxises = PlaneMesh.geometry.attributes['position'].array
+            for (let i =0 ; i<arrayAxises.length;i+=3){
+                const x = arrayAxises[i]
+                const y = arrayAxises[i+1]
+                const z = arrayAxises[i+2]
+    
+                 arrayAxises[i+2] =z + Math.random() 
+    
+            }
+        }
+
+
+```
+
+# Change Color Every vertex
+
+```
+const color:number[] =[]
+const vetexCount = PlaneMesh.geometry.attributes['position'].count
+for (let i=0 ;i<vetexCount; i++)
+{
+
+color.push(1,0,0)
+
+}
+const TypedArray =  new Float32Array(color)
+PlaneMesh.geometry.setAttribute('color',new Three.Int8BufferAttribute(TypedArray,3))
+```
