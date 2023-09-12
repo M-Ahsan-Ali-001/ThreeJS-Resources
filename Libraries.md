@@ -17,3 +17,10 @@ npm install --save @three-ts/orbital-controls //
 import {OrbitControls} from '@three-ts/orbit-controls'
 
 ```
+# GSAP
+```
+// used for animation
+npm install --save @types/gsap
+npm install gsap
+
+```
