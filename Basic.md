@@ -188,8 +188,19 @@ const collision = raycaster.intersectObject(PlaneMesh)
 
 if(collision.length >0)
 {
-    const mesh = collision[0].object as THREE.Mesh; // only of TS
+//collision[0] means very first item in the array
+// face properties contians a, b ,c  they tell which group makes the face
+    const mesh = collision[0].object as THREE.Mesh; // used only because of TS
     console.log(mesh.geometry);
+
+    mesh.geometry.attributes['color'].setX(collision[0].face.a,0) // changing the color using the face grouping
+    
+    mesh.geometry.attributes['color'].setX(collision[0].face.b,0)
+    mesh.geometry.attributes['color'].needsUpdate = true // compulsory to chnage
+
+
+
 }
 }
 ```
+
